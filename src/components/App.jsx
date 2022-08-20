@@ -2,9 +2,9 @@ import { Component } from 'react';
 import { Box } from './Box';
 import { GlobalStyle } from './GlobalStyle';
 import { fetchImages } from 'services/api';
-import Searchbar from './SearchBar';
-import Loader from './Loader';
-import ImageGallery from './ImageGallery';
+import Searchbar from './SearchBar/Searchbar';
+import Loader from './Loader/Loader';
+import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
 
 export class App extends Component {
@@ -56,6 +56,12 @@ export class App extends Component {
     this.setState(prevState => ({
       page: prevState.page + 1,
     }));
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    }, 1000);
   };
 
   render() {

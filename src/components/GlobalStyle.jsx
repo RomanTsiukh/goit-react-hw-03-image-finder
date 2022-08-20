@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
@@ -15,11 +15,11 @@ html {
 }
 
 body {
-    margin: 0;
+    margin: ${p => p.theme.space[0]}px;
+    background-color: ${p => p.theme.colors.bgColorForm};
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    color: #212121;
-    background-color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -36,11 +36,11 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
+    margin: ${p => p.theme.space[0]}px;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+    margin: ${p => p.theme.space[0]}px;
+    padding: ${p => p.theme.space[0]}px;
 }
 `;

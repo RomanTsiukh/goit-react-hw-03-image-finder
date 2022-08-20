@@ -41,7 +41,7 @@ export default class Searchbar extends Component {
       <SearchbarContainer>
         <SearchForm onSubmit={this.handleSubmit}>
           <SearchFormButton type="submit">
-            <AiOutlineSearch width="30" height="30" />
+            <AiOutlineSearch size={24} />
           </SearchFormButton>
           <SearchFormInput
             type="text"
