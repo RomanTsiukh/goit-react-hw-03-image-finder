@@ -48,8 +48,6 @@ export const SearchFormInput = styled.input`
   font-size: ${p => p.theme.fontSizes.l};
   border: ${p => p.theme.radii.none};
   display: inline-block;
-  /* justify-content: center;
-  align-items: center; */
 
   width: 100%;
   outline: none;

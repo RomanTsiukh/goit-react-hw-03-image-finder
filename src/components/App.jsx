@@ -2,10 +2,14 @@ import { Component } from 'react';
 import { Box } from './Box';
 import { GlobalStyle } from './GlobalStyle';
 import { fetchImages } from 'services/api';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Searchbar from './SearchBar/Searchbar';
-import Loader from './Loader/Loader';
+// import ImageGallery from './ImageGallery/ImageGallery';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
+import Loader from './Loader/Loader';
 
 export class App extends Component {
   state = {
@@ -68,13 +72,20 @@ export class App extends Component {
     const { hits, status } = this.state;
     return (
       <Box display="grid" gridTemplateColumns="1fr" gridGap="16px" pb="24px">
-        <GlobalStyle />
         <Searchbar onSubmit={this.formSubmit} />
         {hits.length > 0 && <ImageGallery hits={hits} />}
-        {status === 'panding' && <Loader />}
+        {status === 'pending' && <Loader />}
         {status === 'resolved' &&
           hits.length % 12 === 0 &&
           hits.length !== 0 && <Button onClick={this.loadMoreClick} />}
+
+        <GlobalStyle />
+        <ToastContainer
+          autoClose={2000}
+          position="bottom-center"
+          closeOnClick
+          theme={'colored'}
+        />
       </Box>
     );
   }

@@ -7,6 +7,7 @@ import {
   SearchFormInput,
 } from './Searchbar.styled';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 
 export default class Searchbar extends Component {
   state = {
@@ -25,7 +26,7 @@ export default class Searchbar extends Component {
     const { onSubmit } = this.props;
 
     if (query.trim() === '') {
-      return 'Enter a search query.';
+      return toast.warn('Enter a search query.');
     } else {
       onSubmit(query);
       this.setState({
